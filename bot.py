@@ -49,7 +49,7 @@ async def check_url(msg: Message, url: str):
     try:
         pymongo.MongoClient(url)
     except Exception as e:
-        if "Username and password must be escaped" in e:
+        if "Username and password must be escaped" in str(e):
             if bool(match.group(1)):
                 raw_url = "mongodb+srv://{}:{}@cluster0.{}.mongodb.net/{}?retryWrites=true&w=majority"
             else:
