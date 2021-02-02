@@ -45,11 +45,11 @@ async def check_url(msg: Message, url: str):
     s_r = re.compile("[@_!#$%^&*()<>?/\|}{~:]")
     match = re.match(PATTERN, url)
     if not match:
-        return await msg.reply(f"Invalid MongoDB Url: {url}")
+        return await msg.reply(f"**Invalid MongoDB Url**: `{url}`")
     try:
         pymongo.MongoClient(url)
     except Exception as e:
-        if e == "Username and password must be escaped according to RFC 3986, use urllib.parse.quote_plus()":
+        if "Username and password must be escaped" in e:
             if bool(match.group(1)):
                 raw_url = "mongodb+srv://{}:{}@cluster0.{}.mongodb.net/{}?retryWrites=true&w=majority"
             else:
