@@ -68,7 +68,11 @@ async def check_url(msg: Message, url: str):
                 f"Use this to connect to MongoDB.`\n\n`{new_url}`"
             )
     else:
-        await msg.reply("`This URL is ERROR Free. you can use this to Connect to MongoDB.`")
+        if '<' or '>' in match.group(5):
+            dbname = "Userge"
+            new_url = url.replace(match.group(5), dbname)
+            return await msg.reply(f"`you forgot to remove '<' and '>' signs.`\n\n**Use this URL:** `{new_url}`")
+        await msg.reply("`This URL is ERROR Free. you can use this to connect to MongoDb.`")
 
 
 if __name__ == "__main__":
