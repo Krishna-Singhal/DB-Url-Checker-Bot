@@ -69,3 +69,7 @@ async def check_url(msg: Message, url: str):
             )
     else:
         await msg.reply("`This URL is ERROR Free. you can use this to Connect to MongoDB.`")
+
+
+if __name__ == "__main__":
+    bot.run()
