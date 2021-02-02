@@ -18,7 +18,7 @@ bot = Client(
 @bot.on_message(filters.command("start"))
 async def _start(_, msg: Message):
     START = """
-**Hii {}**, `I am MongoDB Url Checker Bot, Just Send me your MongoDB Url I will tell you Url having any issues to connect or not.`
+**Hii {}**, `I am MongoDB Url Checker Bot, Just Send me your MongoDB Url I will tell your Url having any issues to connect or not.`
 
 __Made with ❤ by [Krishna](https://t.me/Krishna_Singhal)__.
 """
