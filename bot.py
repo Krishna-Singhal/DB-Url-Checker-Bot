@@ -29,6 +29,7 @@ __Made with ❤ by [Krishna](https://t.me/Krishna_Singhal)__.
 async def _private_filter(_, msg: Message):
     url = msg.text
     await check_url(msg, url)
+    await msg.delete()  # For Security
 
 
 @bot.on_message(filters.command("check"))
@@ -38,6 +39,10 @@ async def _check(_, msg: Message):
     else:
         return await msg.reply("`URL not Found!`")
     await check_url(msg, url)
+    try:
+        await msg.delete()  # Will work also in group so Pass chat admin Exception.
+    except:
+        await msg.reply("`I can't delete this Url Myself, Any admin delete this for Security.")
 
 
 async def check_url(msg: Message, url: str):
