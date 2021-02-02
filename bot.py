@@ -22,7 +22,7 @@ async def _start(_, msg: Message):
 
 __Made with ❤ by [Krishna](https://t.me/Krishna_Singhal)__.
 """
-    await msg.reply(START.format(msg.from_user.mention))
+    await msg.reply(START.format(msg.from_user.mention), disable_web_page_preview=True)
 
 
 @bot.on_message(filters.private & filters.text & ~filters.command(["start", "check"]))
